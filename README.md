@@ -4,9 +4,11 @@ This is a clone of Turing School's Ruby exercises repo found here: https://githu
 
 ## Exercises List:
 
-* core-types
-* shovel-and-shift
-* comparisons
-* command-query
-* mythical-creatures
-* objects-and-methods
+* Required
+    * core-types
+    * command-query
+    * mythical-creatures
+* Optional
+    * shovel-and-shift
+    * comparisons
+    * objects-and-methods
