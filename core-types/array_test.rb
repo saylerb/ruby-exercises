@@ -235,37 +235,39 @@ class ArrayTest < Minitest::Homework
     fruit = ["apple", "banana", "cherry", "dewberry"]
 
     a, b, c, d = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
-    assert_equal __, d
+    assert_equal "apple", a
+    assert_equal "banana", b
+    assert_equal "cherry", c
+    assert_equal "dewberry", d
 
     a, b = fruit
-    assert_equal __, a
-    assert_equal __, b
+    assert_equal "apple", a
+    assert_equal "banana", b
 
     a, *b = fruit
-    assert_equal __, a
-    assert_equal __, b
+    # the asterisk consumes the remaining elements
+    assert_equal "apple", a
+    assert_equal ["banana", "cherry", "dewberry"], b
 
     *a, b = fruit
-    assert_equal __, a
-    assert_equal __, b
+    # consumes all but the last element
+    assert_equal ["apple", "banana", "cherry"], a
+    assert_equal "dewberry", b
 
     a, b, *c = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
+    assert_equal "apple", a
+    assert_equal "banana", b
+    assert_equal ["cherry", "dewberry"], c
 
     *a, b, c = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
+    assert_equal ["apple", "banana"], a
+    assert_equal "cherry", b
+    assert_equal "dewberry", c
 
     a, *b, c = fruit
-    assert_equal __, a
-    assert_equal __, b
-    assert_equal __, c
+    assert_equal "apple", a
+    assert_equal ["banana", "cherry"], b
+    assert_equal "dewberry", c
   end
 
   def test_delete
