@@ -5,5 +5,6 @@ class Costume
    @style = style
   end
 
+
 end
 
