@@ -1,75 +1,76 @@
 # encoding: utf-8
 gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
-require 'minitest/pride'
+require 'minitest/emoji'
 require 'minitest/homework'
 
 class StringTest < Minitest::Homework
   be_gentle!
 
   def test_capitalize
-    assert_equal __, "alice".capitalize
-    assert_equal __, "alice smith".capitalize
+    assert_equal "Alice", "alice".capitalize
+    assert_equal "Alice smith", "alice smith".capitalize
   end
 
   def test_upcase
-    assert_equal __, "run!".upcase
+    assert_equal "RUN!", "run!".upcase
   end
 
   def test_downcase
-    assert_equal __, "I'M OVER HERE".downcase
+    assert_equal "i'm over here", "I'M OVER HERE".downcase
   end
 
   def test_check_if_all_caps
-    maybe "abc".upcase == "abc"
-    maybe "ABC".upcase == "ABC"
-    maybe "Hæ?".upcase == "Hæ?"
-    maybe "1, 2, 3".upcase == "1, 2, 3"
+    refute "abc".upcase == "abc"
+    assert "ABC".upcase == "ABC"
+    assert "Hæ?".upcase == "Hæ?"
+    assert "1, 2, 3".upcase == "1, 2, 3"
   end
 
   def test_if_all_lowercase
-    maybe "abc".downcase == "abc"
-    maybe "ABC".downcase == "ABC"
-    maybe "Æsj!".downcase == "Æsj!"
-    maybe "1, 2, 3".downcase == "1, 2, 3"
+    assert "abc".downcase == "abc"
+    refute "ABC".downcase == "ABC"
+    assert "Æsj!".downcase == "Æsj!"
+    assert "1, 2, 3".downcase == "1, 2, 3"
   end
 
   def test_upper_and_lower_case
-    maybe "abc".downcase == "abc".upcase
-    maybe "1, 2, 3".downcase == "1, 2, 3".upcase
-    maybe "%$#!!1!".downcase == "%$#!!1!".upcase
+    refute "abc".downcase == "abc".upcase
+    assert "1, 2, 3".downcase == "1, 2, 3".upcase
+    assert "%$#!!1!".downcase == "%$#!!1!".upcase
   end
 
   def test_chop
-    assert_equal __, "hello!!!".chop
-    assert_equal __, "hello?!".chop
-    assert_equal __, "hello.".chop
-    assert_equal __, "hello".chop
+    assert_equal "hello!!", "hello!!!".chop
+    assert_equal "hello?", "hello?!".chop
+    assert_equal "hello", "hello.".chop
+    assert_equal "hell", "hello".chop
   end
 
   def test_chomp
-    assert_equal __, "go\n\n".chomp
-    assert_equal __, "go\n".chomp
-    assert_equal __, "go".chomp
+    assert_equal "go\n", "go\n\n".chomp
+    assert_equal "go", "go\n".chomp
+    assert_equal "go", "go".chomp
   end
 
   def test_delete
-    assert_equal __, "eeny, meeny, miny, moe".delete("e")
-    assert_equal __, "eeny, meeny, miny, moe".delete("m")
-    assert_equal __, "eeny, meeny, miny, moe".delete("n")
+    assert_equal "ny, mny, miny, mo", "eeny, meeny, miny, moe".delete("e")
+    assert_equal "eeny, eeny, iny, oe", "eeny, meeny, miny, moe".delete("m")
+    assert_equal "eey, meey, miy, moe", "eeny, meeny, miny, moe".delete("n")
   end
 
   def test_reverse
-    assert_equal __, "ZOMG SO MUCH FUN!!1!".reverse
-    assert_equal __, "bubbly pies".reverse
-    assert_equal __, "racecar".reverse
+    assert_equal "!1!!NUF HCUM OS GMOZ", "ZOMG SO MUCH FUN!!1!".reverse
+    assert_equal "seip ylbbub", "bubbly pies".reverse
+    assert_equal "racecar", "racecar".reverse
   end
 
   def test_squeeze
-    assert_equal __, "Granny juggles puppies in the moonlight".squeeze
-    assert_equal __, "Sunny summer days playing hoops on the roof".squeeze('o')
-    assert_equal __, "You fool! You cannot choose to cook cheese with a spoon".squeeze('ne')
-    assert_equal __, "Her name      was Betty Moore".squeeze(" ")
+    assert_equal "Grany jugles pupies in the monlight", "Granny juggles puppies in the moonlight".squeeze
+    assert_equal "Sunny summer days playing hops on the rof", "Sunny summer days playing hoops on the roof".squeeze('o')
+    assert_equal "You fool! You canot choose to cook chese with a spoon",
+                 "You fool! You cannot choose to cook cheese with a spoon".squeeze('ne')
+    assert_equal "Her name was Betty Moore", "Her name      was Betty Moore".squeeze(" ")
   end
 
   def test_strip
