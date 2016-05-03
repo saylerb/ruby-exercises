@@ -1,5 +1,3 @@
-
-
 class Pills
 
   def initialize
@@ -13,6 +11,4 @@ class Pills
   def pop
     @count -= 1
   end
-
-
 end
