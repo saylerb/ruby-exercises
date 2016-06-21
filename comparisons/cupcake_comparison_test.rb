@@ -23,31 +23,31 @@ class CupcakeComparisonsTest < Minitest::Homework
   def test_equality
     c1 = Cupcake.new("chocolate", 45)
     c2 = Cupcake.new("chocolate", 45)
-    maybe c1.object_id == c2.object_id
-    maybe c1 == c2
-    maybe c1 <= c2
-    maybe c1 >= c2
-    maybe c1 < c2
-    maybe c1 > c2
+    refute c1.object_id == c2.object_id
+    assert c1 == c2
+    assert c1 <= c2
+    assert c1 >= c2
+    refute c1 < c2
+    refute c1 > c2
   end
 
   def test_unequal
     carrot = Cupcake.new("carrot", 30)
     chocolate = Cupcake.new("chocolate", 45)
-    maybe carrot == chocolate
-    maybe carrot <= chocolate
-    maybe carrot >= chocolate
-    maybe carrot <  chocolate
-    maybe carrot >  chocolate
+    refute carrot == chocolate
+    assert carrot <= chocolate
+    refute carrot >= chocolate
+    assert carrot <  chocolate
+    refute carrot >  chocolate
   end
 
   def test_between
     carrot = Cupcake.new("carrot", 30)
     chocolate = Cupcake.new("chocolate", 45)
     caramel = Cupcake.new("caramel", 50)
-    maybe chocolate.between?(carrot, caramel)
-    maybe chocolate.between?(caramel, carrot)
-    maybe carrot.between?(chocolate, caramel)
+    assert chocolate.between?(carrot, caramel)
+    refute chocolate.between?(caramel, carrot)
+    refute carrot.between?(chocolate, caramel)
   end
 
   def test_sort
@@ -55,6 +55,6 @@ class CupcakeComparisonsTest < Minitest::Homework
     caramel = Cupcake.new("caramel", 50)
     carrot = Cupcake.new("carrot", 30)
     cupcakes = [caramel, carrot, chocolate]
-    assert_equal __, cupcakes.sort
+    assert_equal [carrot, chocolate, caramel], cupcakes.sort
   end
 end
