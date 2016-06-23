@@ -1,5 +1,5 @@
 require_relative "test_helper"
-require "./lib/character_count"
+require_relative "../lib/character_count"
 
 class CharacterCountTest < Minitest::Test
 
